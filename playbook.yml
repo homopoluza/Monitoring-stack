@@ -1,11 +1,11 @@
 ---
-- hosts: alertmanager
-  remote_user: ubuntu
-  become: yes
-  become_user: root
-  become_method: sudo
-  roles:
-    - alertmanager
+# - hosts: alertmanager
+#   remote_user: ubuntu
+#   become: yes
+#   become_user: root
+#   become_method: sudo
+#   roles:
+#     - alertmanager
 
 # - hosts: node_exporter
 #   remote_user: ubuntu
@@ -23,10 +23,10 @@
 #   roles:
 #     - prometheus
 
-# - hosts: grafana
-#   remote_user: ubuntu
-#   become: yes
-#   become_user: root
-#   become_method: sudo
-#   roles:
-#     - grafana
+- hosts: grafana
+  remote_user: ubuntu
+  become: yes
+  become_user: root
+  become_method: sudo
+  roles:
+    - grafana

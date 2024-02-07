@@ -1,7 +1,15 @@
-- name: Install grafana
-  yum:
-    name: https://s3-us-west-2.amazonaws.com/grafana-releases/release/grafana-{{ version }}-1.x86_64.rpm
-    state: latest
+- name: "Install dependencies"
+  ansible.builtin.apt:
+    name:
+      - adduser
+      - libfontconfig1
+      - musl
+    state: present
+    update_cache: yes
+
+- name: "Install Grafana"
+  ansible.builtin.apt:
+    deb: https://dl.grafana.com/enterprise/release/grafana-enterprise_{{ version }}_amd64.deb
 
 - name: "Grafana configuration file copy"
   template:
@@ -17,6 +25,6 @@
 
 - name: "Check if Grafana is accessible."
   uri:
-    url: http://127.0.0.1:3000
+    url: http://127.0.0.1:3000/login
     method: GET
     status_code: 200
