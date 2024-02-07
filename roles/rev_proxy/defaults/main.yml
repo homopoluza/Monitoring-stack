@@ -1,0 +1,14 @@
+---
+nginx_revproxy_sites:
+  monitoring.imarketingtest.kz:
+    domains:
+      - monitoring.imarketingtest.kz
+    upstreams:
+      - { backend_address: localhost, backend_port: 9090 }  # Prometheus
+      - { backend_address: localhost, backend_port: 9100 }  # Node Exporter
+      - { backend_address: localhost, backend_port: 9093 }  # Alertmanager
+      - { backend_address: localhost, backend_port: 3000 }  # Grafana
+    ssl: true
+    letsencrypt: true
+    letsencrypt_email: 011@i-marketing.kz
+    auth: true

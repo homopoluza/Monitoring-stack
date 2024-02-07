@@ -1,0 +1,22 @@
+---
+all:
+  children:
+    prometheus:
+      hosts:
+        77.243.80.223
+    node_exporter:
+      hosts:
+        77.243.80.223
+        194.110.55.12
+    alertmanager:
+      hosts:
+        77.243.80.223
+    grafana:
+      hosts:
+        77.243.80.223
+    rev_proxy:
+      hosts:
+        77.243.80.223
+
+
+

@@ -2,6 +2,6 @@
 serviceName: "alertmanager"
 userId: "alertmanager"
 groupId: "alertmanager"
-exec_command: "/usr/local/bin/alertmanager --config.file=/etc/alertmanager/alertmanager.yml --storage.path=/data/alertmanager --web.listen-address='localhost:9093' --cluster.listen-address=''"
+exec_command: "/usr/local/bin/alertmanager --config.file=/etc/alertmanager/alertmanager.yml --storage.path=/data/alertmanager --web.listen-address='0.0.0.0:9093' --cluster.listen-address=''"
 version: "0.26.0"
 working_dir: "/etc/alertmanager/"

@@ -1,6 +1,5 @@
 ---
 # - hosts: alertmanager
-#   remote_user: ubuntu
 #   become: yes
 #   become_user: root
 #   become_method: sudo
@@ -8,7 +7,6 @@
 #     - alertmanager
 
 # - hosts: node_exporter
-#   remote_user: ubuntu
 #   become: yes
 #   become_user: root
 #   become_method: sudo
@@ -16,17 +14,23 @@
 #     - prometheus_node_exporter
 
 # - hosts: prometheus
-#   remote_user: ubuntu
 #   become: yes
 #   become_user: root
 #   become_method: sudo
 #   roles:
 #     - prometheus
 
-- hosts: grafana
-  remote_user: ubuntu
+# - hosts: grafana
+#   become: yes
+#   become_user: root
+#   become_method: sudo
+#   roles:
+#     - grafana
+
+- hosts: rev_proxy
   become: yes
   become_user: root
   become_method: sudo
   roles:
-    - grafana
+    - rev_proxy
+
