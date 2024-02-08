@@ -137,4 +137,4 @@
   when: 
     - item.value.auth
 
-# - include_tasks: letsencrypt.yml
+- include_tasks: letsencrypt.yml
