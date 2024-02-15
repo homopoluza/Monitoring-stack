@@ -2,7 +2,9 @@
 nginx_revproxy_sites:
   monitoring.imarketingtest.kz:
     domains:
-      - monitoring.imarketingtest.kz
+      - prometheus.imarketingtest.kz
+      - alertmanager.imarketingtest.kz
+      - grafana.imarketingtest.kz
     upstreams:
       - { backend_address: localhost, backend_port: 9090, name: prometheus }  # Prometheus
       - { backend_address: localhost, backend_port: 9100, name: node  }  # Node Exporter
