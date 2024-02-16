@@ -6,10 +6,10 @@ nginx_revproxy_sites:
       - alertmanager.imarketingtest.kz
       - grafana.imarketingtest.kz
     upstreams:
-      - { backend_address: localhost, backend_port: 9090, name: prometheus }  # Prometheus
-      - { backend_address: localhost, backend_port: 9100, name: node  }  # Node Exporter
-      - { backend_address: localhost, backend_port: 9093, name: alert  }  # Alertmanager
-      - { backend_address: localhost, backend_port: 3000, name: grafana  }  # Grafana
+      - { backend_address: localhost, backend_port: 9090, domain_up: prometheus.imarketingtest.kz, name: prometheus }  # Prometheus
+      # - { backend_address: localhost, backend_port: 9100, name: node  }  # Node Exporter
+      - { backend_address: localhost, backend_port: 9093, domain_up: alertmanager.imarketingtest.kz, name: alert }  # Alertmanager
+      - { backend_address: localhost, backend_port: 3000, domain_up: grafana.imarketingtest.kz, name: grafana }  # Grafana
     ssl: true
     letsencrypt: true
     letsencrypt_email: 011@i-marketing.kz

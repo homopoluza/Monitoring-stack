@@ -57,14 +57,14 @@
 
 - name: Generate certs (first time)
   become: true
-  command: |
+  command:
     certbot certonly
     --webroot -w /var/www/{{ item.key }}
     -d {{ item.value.domains | join(' -d ') }}
     --email {{ item.value.letsencrypt_email }}
     --non-interactive --cert-name {{ item.key }}
     --agree-tos creates=/etc/letsencrypt/live/{{ item.key }}/fullchain.pem
-#    --test-cert
+   --test-cert
   with_dict: "{{ nginx_revproxy_sites }}"
   when: item.value.letsencrypt | default(False)
 
