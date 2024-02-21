@@ -27,6 +27,15 @@
     remote_src: yes
     mode: 0755
 
+- name: Copy promtool file to bin
+  copy:
+    src: "/tmp/prometheus-{{ version }}.linux-amd64/promtool"
+    dest: "/usr/local/bin/promtool"
+    owner: "{{userId}}"
+    group: "{{groupId}}"
+    remote_src: yes
+    mode: 0755
+
 - name: Delete prometheus tmp folder
   file:
     path: '/tmp/prometheus-{{ version }}.linux-amd64'
