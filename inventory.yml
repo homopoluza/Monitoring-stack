@@ -7,7 +7,9 @@ all:
     node_exporter:
       hosts:
         77.243.80.223:
+          host_name: 'imarketing'
         194.110.55.12:
+          host_name: 'zeroshop.kz'
     alertmanager:
       hosts:
         77.243.80.223
@@ -17,6 +19,3 @@ all:
     rev_proxy:
       hosts:
         77.243.80.223
-
-
-
