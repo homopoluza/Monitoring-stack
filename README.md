@@ -1,11 +1,17 @@
-# Prometheus with Grafana using Ansible
+# Prometheus + Grafana + Ansible + Nginx
 
-In this project, we are configurating prometheus, node_exporter, alertmanager and Grafana. We setup Grafana dashboard which can use source as Prometheus.
+Pretty old roles, fixed some issues. Now you can start a secure monitoring stack with a push of a button. 
 
 ## Getting Started
 
-Step 1: Update ip address of instances in inventory file.
+1. **Update IP Addresses and Domains:**
+- Update the IP addresses of your instances in the inventory file.
+- Modify domains and upstreams for the Nginx reverse proxy.
 
-Step 2: Run ansible command to setup prometheus, node_exporter, alertmanager and Grafana services
+2. **Update Service Versions:**
+- In the `vars` section, update the versions of the services (Prometheus, Grafana, etc.) as needed.
 
-Ansible command: ansible-playbook playbook.yml
+3. **Run Ansible Command:**
+- Execute the following Ansible command to set up Prometheus, Node Exporter, Alertmanager, Nginx, and Grafana services:
+
+Ansible command: ansible-playbook -i inventory.yml playbook.yml
