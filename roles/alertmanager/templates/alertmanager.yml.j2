@@ -1,0 +1,27 @@
+global:
+  slack_api_url: "https://hooks.slack.com/services/SlackWebhookAPI"
+  resolve_timeout: 1m
+
+route:
+  group_by: ['instance', 'severity']
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 3h
+  routes:
+  - match:
+      alertname: InstanceDown
+  receiver: 'alert-team'
+
+receivers:
+- name: 'alert-team'
+  email_configs:
+  - to: {{ email_to }}
+    from: {{ email_login }}
+    smarthost: {{ smtp_server }}
+    auth_username: {{ email_login }}
+    auth_identity: {{ email_login }}
+    auth_password: {{ lookup('env', 'EMAIL_PASS') }}
+    send_resolved: true
+  slack_configs:
+  - channel: "#webhook-test"
+    text: "{% raw %}summary: {{ .CommonAnnotations.summary }}\ndescription: {{ .CommonAnnotations.description }}{% endraw %}"

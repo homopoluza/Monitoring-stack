@@ -48,10 +48,16 @@
     group: "{{groupId}}"
     mode: 0755
 
+# - name: Copy config file
+#   copy:
+#     src: "{{ role_path }}/files/alertmanager.yml"
+#     dest: /etc/alertmanager/alertmanager.yml
+
 - name: Copy config file
-  copy:
-    src: "{{ role_path }}/files/alertmanager.yml"
+  template:
+    src: alertmanager.yml.j2
     dest: /etc/alertmanager/alertmanager.yml
+
 
 - name: Copy systemd init file
   template:
